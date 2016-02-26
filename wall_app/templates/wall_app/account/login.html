@@ -1,0 +1,13 @@
+{% extends 'wall_app/base.html' %}
+
+{% block content %}
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Login</div>
+            <div class="panel-body">
+                <a class="btn btn-default" href="{% url 'social:begin' 'facebook' %}">Facebook</a>
+                <a class="btn btn-default" href="{% url 'social:begin' 'vk-oauth2' %}">Vk.com</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

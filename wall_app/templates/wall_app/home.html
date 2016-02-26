@@ -1,0 +1,30 @@
+{% extends 'wall_app/base.html' %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+        {% include 'wall_app/template_parts/comment_form.html' %}
+    {% else %}
+        <p class="lead text-center">For create or comment messages please
+            <a href="{% url 'wall_app:account_login' %}">login</a></p>
+    {% endif %}
+
+    {% if comments %}
+        {# create app home link for js requests #}
+        {% url 'wall_app:home' as home_url %}
+
+        {% include 'wall_app/template_parts/comments.html' %}
+
+        {% if page_obj.has_previous or page_obj.has_next %}
+            <ul class="pager">
+                {% if page_obj.has_previous %}
+                    <li><a href="{{ home_url }}?page={{ page_obj.previous_page_number }}">&larr; Older</a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                    <li><a href="{{ home_url }}?page={{ page_obj.next_page_number }}">Newer &rarr;</a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    {% else %}
+        <p class="lead text-center">Currently there are no comments.</p>
+    {% endif %}
+{% endblock %}

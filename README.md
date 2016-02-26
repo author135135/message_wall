@@ -1,1 +1,1 @@
-# message_wall
+# Message wall test project.

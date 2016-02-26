@@ -1,0 +1,10 @@
+<div class="well">
+    <h4>
+        {% if action.action_type == 'to_comment' %}
+            Leave your comment
+        {% elif action.action_type == 'edit' %}
+            Edit your comment
+        {% endif %}
+    </h4>
+    {% include 'wall_app/template_parts/comment_form.html' with form=action.form %}
+</div>

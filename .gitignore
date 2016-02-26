@@ -1,0 +1,9 @@
+*.py[cod]
+message_wall/settings/production.py
+env/
+.env/
+.idea/
+static/
+media/
+*.sqlite3
+*.db

@@ -1,0 +1,35 @@
+{% load wall_app_tags %}
+
+
+{% for node in comments %}
+    <div class="media">
+        <a class="pull-left" href="#">
+            <img class="media-object" src="http://placehold.it/64x64" alt="">
+        </a>
+
+        <div class="media-body">
+            <h4 class="media-heading">
+                <small>
+                    <span class="glyphicon glyphicon-user"></span>&nbsp;{{ node.comment.user }} &nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-time"></span>&nbsp;{{ node.comment.created_at|date:"Y/m/d H:i:s" }}
+                </small>
+            </h4>
+            {{ node.comment.text }}
+            {% if request.user.is_authenticated %}
+                <p>
+                    <a class="label label-default" href="{{ home_url }}?to_comment={{ node.comment.id }}">Comment</a>
+                    {% if request.user|can_edit:node.comment %}
+                        <a class="label label-success"
+                           href="{% url 'wall_app:home' %}?edit={{ node.comment.id }}">edit</a>
+                    {% endif %}
+                </p>
+                {% if action and node.comment.id == action.comment_id %}
+                    {% include 'wall_app/template_parts/wrap_comment_form.html' %}
+                {% endif %}
+            {% endif %}
+            {% if node.children %}
+                {% include 'wall_app/template_parts/comments.html' with comments=node.children %}
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
