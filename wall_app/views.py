@@ -2,7 +2,6 @@ from django.views.generic import TemplateView, RedirectView, CreateView
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.core.paginator import Paginator
 from django.contrib.auth import logout
-from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect, JsonResponse
 from django.template.loader import get_template
 from wall_app.models import Comment
@@ -148,7 +147,7 @@ class HomeView(CreateView):
         return response
 
 
-home = (HomeView.as_view())
+home = HomeView.as_view()
 
 
 class AccountLoginView(TemplateView):

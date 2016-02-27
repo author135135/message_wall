@@ -61,6 +61,7 @@ TEMPLATES = [
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': True,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -124,20 +125,10 @@ LOGIN_ERROR_URL = '/'
 
 # OAuth social networks settings
 
-SOCIAL_AUTH_VK_OAUTH2_KEY = '5100070'
+SOCIAL_AUTH_VK_OAUTH2_KEY = ''
 
-SOCIAL_AUTH_VK_OAUTH2_SECRET = 'EXQixGVB8Pk5Q7AFyufI'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = ''
 
-SOCIAL_AUTH_FACEBOOK_KEY = '646704275472612'
+SOCIAL_AUTH_FACEBOOK_KEY = ''
 
-SOCIAL_AUTH_FACEBOOK_SECRET = '883b6d06061578fef586a860b3fee95b'
-
-# SOCIAL_AUTH_TWITTER_KEY = 'DjiOdI8nDxYvBJUzMGulohETD'
-# SOCIAL_AUTH_TWITTER_SECRET = 'WiAZ2pbO0ttMdyCLZU32shceQkN2hQGUSARhr8DGBuRjQHl4Va'
-
-# SOCIAL_AUTH_INSTAGRAM_KEY = '0287e3d98d454bd9b01ee57b5bc46830'
-# SOCIAL_AUTH_INSTAGRAM_SECRET = '1502efae83e44105bfad8a2ba1d9b976'
-
-# SOCIAL_AUTH_GOOGLE_PLUS_KEY = '459351663494-jcleer2u1ni9j1b0giigsh68e9nk6ump.apps.googleusercontent.com'
-# SOCIAL_AUTH_GOOGLE_PLUS_SECRET = 'oH8AUFUC1kpCrQTXpJk5SIO9'
-# SOCIAL_AUTH_GOOGLE_PLUS_SCOPE = ['https://www.googleapis.com/auth/plus.login']
+SOCIAL_AUTH_FACEBOOK_SECRET = ''

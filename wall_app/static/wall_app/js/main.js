@@ -9,6 +9,12 @@
             $('.has-error', form).removeClass('has_error');
             $('.help-block', form).remove();
 
+
+            // Check csrftoken
+            if (!$('[name="csrfmiddlewaretoken"]', form).length) {
+                form.append('<input type="hidden" name="csrfmiddlewaretoken" value="' + getCookie('csrftoken') + '">');
+            }
+
             $.post(form.attr('action'), form.serialize(), function(response){
                 if (response['errors']) {
                     $.each(response['errors'], function(k, v){
